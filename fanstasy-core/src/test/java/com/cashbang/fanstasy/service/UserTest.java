@@ -1,5 +1,7 @@
 package com.cashbang.fanstasy.service;
 
+import com.cashbang.fanstasy.entity.UserEntity;
+import com.google.gson.Gson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -20,6 +22,15 @@ public class UserTest {
     @Test
     public void testUser(){
         userService.login("nihao","nihoa");
+    }
+
+    @Test
+    public void testJson(){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setLoginName("nihao");
+        userEntity.setPassword("nihao123");
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(userEntity));
     }
 
 
