@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cashbang.fanstasy.mapper.UserMapper">
+
+    <select id="login" resultType="com.cashbang.fanstasy.entity.UserEntity">
+        SELECT WORK_ID AS loginName FROM USER WHERE WORK_ID = #{loginName} AND LOGIN_PASS = #{password}
+    </select>
+
+</mapper>
