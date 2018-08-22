@@ -5,6 +5,8 @@ import com.google.gson.Gson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
@@ -13,7 +15,9 @@ import javax.annotation.Resource;
  * Created by huangdejie on 2018/8/21 0021.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@ConfigurationProperties("classpath*:application.properties,classpath*:application-dev.properties")
 @MapperScan("com.cashbang.fanstasy.mapper")
+@SpringBootTest
 public class UserTest {
 
     @Resource
