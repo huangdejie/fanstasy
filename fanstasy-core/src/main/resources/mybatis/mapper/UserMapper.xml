@@ -6,4 +6,8 @@
         SELECT WORK_ID AS loginName FROM USER WHERE WORK_ID = #{loginName} AND LOGIN_PASS = #{password}
     </select>
 
+    <select id="queryUser" resultType="com.cashbang.fanstasy.entity.UserEntity">
+        SELECT WORK_ID AS loginName FROM USER
+    </select>
+
 </mapper>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by huangdejie on 2018/8/20 0020.
@@ -37,8 +38,7 @@ public class UserController {
     @ApiOperation(value = "获取用户信息",notes = "获取用户信息")
     @RequestMapping(value = "/queryUserInfo",method = RequestMethod.GET)
     public Response queryUserInfo(HttpServletRequest httpServletRequest){
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUserName("你好");
+        List<UserEntity> userEntity = userService.queryUser();
         Response response = new Response();
         response.setDetail(userEntity);
         return response;
