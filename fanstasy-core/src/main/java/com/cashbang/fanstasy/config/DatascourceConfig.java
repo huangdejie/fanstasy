@@ -24,6 +24,11 @@ public class DatascourceConfig {
     @Autowired
     private DatasourceProperties properties;
 
+    /**
+     * @ConditionalOnMissingBean
+     * 仅仅在当前上下文中不存在该对象时才创建
+     * @return
+     */
     @Bean
     @ConditionalOnMissingBean
     public DataSource druidDataSource() {
