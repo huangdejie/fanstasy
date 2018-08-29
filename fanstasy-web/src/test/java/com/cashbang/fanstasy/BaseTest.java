@@ -1,5 +1,6 @@
 package com.cashbang.fanstasy;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -12,6 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = {FanstasyApplication.class})
 public class BaseTest {
 
+    @Test
+    public void testAAAA(){
+        System.out.println("你好");
+    }
 
 
 }

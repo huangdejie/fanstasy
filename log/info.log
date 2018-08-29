@@ -1,0 +1,46 @@
+16:51:56.087 logback [main] INFO  c.c.fanstasy.FanstasyApplication:48 - Starting FanstasyApplication on H8JLPYIF7XTJ9F2 with PID 10320 (E:\jhou\fanstasy\fanstasy-web\target\classes started by Administrator in E:\jhou\fanstasy)
+16:51:56.090 logback [main] INFO  c.c.fanstasy.FanstasyApplication:597 - The following profiles are active: dev
+16:51:56.254 logback [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12d4bf7e: startup date [Wed Aug 29 16:51:56 CST 2018]; root of context hierarchy
+16:51:57.013 logback [background-preinit] INFO  o.h.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.3.6.Final
+16:51:57.796 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:327 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$91fc1e25] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:51:58.293 logback [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer:92 - Tomcat initialized with port(s): 8082 (http)
+16:51:58.312 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol:180 - Initializing ProtocolHandler ["http-nio-8082"]
+16:51:58.328 logback [main] INFO  o.a.catalina.core.StandardService:180 - Starting service [Tomcat]
+16:51:58.328 logback [main] INFO  o.a.catalina.core.StandardEngine:180 - Starting Servlet Engine: Apache Tomcat/8.5.32
+16:51:58.466 logback [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]:180 - Initializing Spring embedded WebApplicationContext
+16:51:58.466 logback [localhost-startStop-1] INFO  o.s.web.context.ContextLoader:276 - Root WebApplicationContext: initialization completed in 2212 ms
+16:51:58.720 logback [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean:191 - Mapping servlet: 'statViewServlet' to [/druid/*]
+16:51:58.721 logback [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean:191 - Mapping servlet: 'dispatcherServlet' to [/]
+16:51:58.722 logback [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean:191 - Mapping servlet: 'statViewServlet' to [/druid/*]
+16:51:58.722 logback [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean:194 - Servlet statViewServlet was not registered (possibly already registered?)
+16:51:58.725 logback [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean:259 - Mapping filter: 'characterEncodingFilter' to: [/*]
+16:51:58.725 logback [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean:259 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+16:51:58.725 logback [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean:259 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+16:51:58.726 logback [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean:259 - Mapping filter: 'requestContextFilter' to: [/*]
+16:51:58.726 logback [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean:272 - Mapping filter: 'webStatFilter' to urls: [/*]
+16:51:58.726 logback [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean:228 - Filter webStatFilter was not registered (possibly already registered?)
+16:51:59.225 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource:930 - {dataSource-1} inited
+16:51:59.929 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/user/queryUserInfo],methods=[GET]}" onto public com.cashbang.fanstasy.response.Response com.cashbang.fanstasy.controller.UserController.queryUserInfo(javax.servlet.http.HttpServletRequest)
+16:51:59.930 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/user/login],methods=[POST]}" onto public com.cashbang.fanstasy.response.Response com.cashbang.fanstasy.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.cashbang.fanstasy.request.UserRequest)
+16:51:59.931 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+16:51:59.934 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+16:51:59.935 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+16:51:59.936 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+16:51:59.938 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+16:51:59.939 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:543 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+16:52:00.203 logback [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter:534 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12d4bf7e: startup date [Wed Aug 29 16:51:56 CST 2018]; root of context hierarchy
+16:52:00.263 logback [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping:362 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:52:00.263 logback [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping:362 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:52:00.291 logback [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping:362 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:52:00.808 logback [main] INFO  o.s.j.e.a.AnnotationMBeanExporter:431 - Registering beans for JMX exposure on startup
+16:52:00.809 logback [main] INFO  o.s.j.e.a.AnnotationMBeanExporter:918 - Bean with name 'druidDataSource' has been autodetected for JMX exposure
+16:52:00.810 logback [main] INFO  o.s.j.e.a.AnnotationMBeanExporter:918 - Bean with name 'statFilter' has been autodetected for JMX exposure
+16:52:00.813 logback [main] INFO  o.s.j.e.a.AnnotationMBeanExporter:672 - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+16:52:00.815 logback [main] INFO  o.s.j.e.a.AnnotationMBeanExporter:672 - Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
+16:52:00.822 logback [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper:84 - Context refreshed
+16:52:00.845 logback [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper:87 - Found 1 custom documentation plugin(s)
+16:52:00.852 logback [main] INFO  s.d.s.w.s.ApiListingReferenceScanner:44 - Scanning for api listing references
+16:52:00.980 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol:180 - Starting ProtocolHandler ["http-nio-8082"]
+16:52:00.988 logback [main] INFO  o.a.tomcat.util.net.NioSelectorPool:180 - Using a shared selector for servlet write/read
+16:52:01.004 logback [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer:216 - Tomcat started on port(s): 8082 (http)
+16:52:01.009 logback [main] INFO  c.c.fanstasy.FanstasyApplication:57 - Started FanstasyApplication in 5.455 seconds (JVM running for 5.809)

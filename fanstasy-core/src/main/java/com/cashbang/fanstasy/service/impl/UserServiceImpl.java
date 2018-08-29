@@ -3,6 +3,8 @@ package com.cashbang.fanstasy.service.impl;
 import com.cashbang.fanstasy.entity.UserEntity;
 import com.cashbang.fanstasy.mapper.UserMapper;
 import com.cashbang.fanstasy.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,6 +15,8 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Resource
     private UserMapper userMapper;
