@@ -1,0 +1,2 @@
+JMX(Java Management Extensions)
+    MBean:一个MBean是一个可以被管理的Bean
