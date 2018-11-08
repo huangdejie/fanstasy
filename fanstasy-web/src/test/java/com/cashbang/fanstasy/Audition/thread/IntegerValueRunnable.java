@@ -1,10 +1,10 @@
-package com.cashbang.fanstasy;
+package com.cashbang.fanstasy.audition.thread;
 
 /**
  * @Author: huangdejie
  * @Date: 2018/11/8
  */
-public class MyRunnable implements Runnable{
+public class IntegerValueRunnable implements Runnable{
 
     public static Integer num = new Integer(0);
 
