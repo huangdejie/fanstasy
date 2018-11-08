@@ -1,16 +1,16 @@
 package com.cashbang.fanstasy.jmx;
 
-import com.cashbang.fanstasy.jmx.notification.HiListener;
-import com.cashbang.fanstasy.jmx.notification.Xiaosi;
-import com.sun.jdmk.comm.HtmlAdaptorServer;
-
-import javax.management.*;
-import javax.management.remote.JMXConnectorServer;
-import javax.management.remote.JMXConnectorServerFactory;
-import javax.management.remote.JMXServiceURL;
-import java.lang.management.ManagementFactory;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
+//import com.cashbang.fanstasy.jmx.notification.HiListener;
+//import com.cashbang.fanstasy.jmx.notification.Xiaosi;
+//import com.sun.jdmk.comm.HtmlAdaptorServer;
+//
+//import javax.management.*;
+//import javax.management.remote.JMXConnectorServer;
+//import javax.management.remote.JMXConnectorServerFactory;
+//import javax.management.remote.JMXServiceURL;
+//import java.lang.management.ManagementFactory;
+//import java.rmi.registry.LocateRegistry;
+//import java.rmi.registry.Registry;
 
 /**
  * @Author: huangdejie
@@ -39,7 +39,7 @@ public class HelloAgent {
      * @param args
      * @throws Exception
      */
-    public static void main(String[] args) throws Exception{
+    /*public static void main(String[] args) throws Exception{
         MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 
         ObjectName helloName = new ObjectName("MyMBean:name=HelloWorld");
@@ -54,6 +54,6 @@ public class HelloAgent {
         server.registerMBean(xs,new ObjectName("MyMBean:name=xiaosi"));
         xs.addNotificationListener(new HiListener(),null,hello);
         adapter.start();
-    }
+    }*/
 
 }
