@@ -1,0 +1,86 @@
+RepositoryService:提供一系列管理流程定义和流程部署的API
+RuntimeService:在流程运行时对流程实例进行管理与控制
+TaskServiceL:对流程任务进行管理,例如任务提醒、任务完成和创建任务分本任务等
+IdentityService:提供对流程角色数据进行管理的API，这些角色数据包括用户组、用户以及他们之间的关系
+ManagementService:提供对流程引擎进行管理和维护的服务
+HistoryService:对流程的历史数据进行操作，包括查询、删除历史数据等
+DynamicBpmnService:使用该服务，可以不需要重新部署流程模型，就可以实现对流程模型的部分修改
+
+
+DeploymentBuilder对象
+addZipInputStream()
+addBpmnModel()
+diableSchemaValidation()关闭格式校验
+diableBpmnValidation关闭流程校验
+查询部署资源
+Deployment
+getResourceAsStream()
+删除部署资源
+deletedeployment(String deploymentId)
+	删除部署数据，不进行级联删除
+deleteDeployment(String deploymentId,boolean cascade)
+	是否进行级联删除
+注意：
+	1）不管是否指定级联，都会删除部署相关的身份数据、流程定义数据、流程资源与部署数据
+	2）如果设置为级联删除，则会将运行的流程实例、流程任务以及流程实例的历史数据删除
+	3）如果不级联删除，但是存在运行时数据，例如还有流程实例，就会删除失败
+
+
+如果不需要自动生成流程图，则在配置文件中加入<property name="createDiagramOnDeploy" value="false">
+
+流程启动权限(允许哪些人可以启动流程)responsitoryService.addCandidateStarterUser(def.getId(),user.getId())
+
+任务权限
+	任务候选人(组)
+	任务持有人(一个任务只能有一个任务持有人)
+	任务代理人
+产生工作
+	1）异步任务
+		activiti:class="" activiti:asnyc="true"
+	2）定时任务
+	3）暂停任务
+	4）无法执行的工作
+工作查询对象
+	JobQuery:到一般工作表(ACT_RU_JOB)中查询数据
+	TimerJobQuery:到定时器工作表(ACT_RU_TIMER_JOB)中查询数据
+	SuspendedJobQuery:到终端工作表(ACT_RU_SUSPENDED_JOB)查询数据
+	DeadLetterJobQuery:到无法执行工作表(ACT_RU_DEADLETTER)中查询数据
+
+
+
+定时器事件
+	<timerEventDefinition>
+		<timeDate/>指定时间
+		<timeDuration/>指定定时器激活后多久的时间内该定时器被运行
+		<timeCycle/>支持表达式
+	</timerEventdeginition>
+
+
+开始事件
+   无指定开始事件:触发不需要条件
+   定时器开始事件:
+   消息开始事件:收到外部的消息开始启动
+   错误开始事件:
+   ！！！所有的开始事件都是捕获事件
+结束事件
+   无指定结束事件
+   错误结束事件
+   取消结束事件
+    只能使用在事务子流程中
+    与取消边界事件一起使用
+   终止结束事件
+    可以终止流程
+   ！！！结束事件都是抛出事件
+
+
+
+
+
+
+
+
+
+
+
+
+
