@@ -1,6 +1,6 @@
 package com.cashbang.fanstasy.proxy;
 
-import com.cashbang.fanstasy.BaseTest;
+import com.cashbang.BaseTest;
 import org.junit.Test;
 
 /**
