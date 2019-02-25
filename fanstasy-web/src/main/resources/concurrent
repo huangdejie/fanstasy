@@ -1,0 +1,25 @@
+volatile:线程A对一个被volatile修饰的变量进行了修改，对于其它线程来说是可见的，即线程获取volatile变量的值都是最新的
+    使用volatile必须满足:
+        对变量的操作不依赖于当前值
+        该变量没有包含在具有其它变量的不变式中(比如有两个被volatile修饰的值，初始lowNum=0和upperNum=0(lowNum<upperNum)，
+            如果有两个线程同时修改，就会出现lowNum>upperNum的情况)
+
+等待队列
+    ArrayBlockingQueue:数组结构的阻塞队列
+    LinkedBlockingQueue:链表结构的阻塞队列
+    PriorityBlockingQueue:具有优先级的阻塞队列
+    SynchronousQueue:不会存储元素的阻塞队列(虽然是个队列，但是不能存储元素。要将任务放进这个队列，就必须
+        要有另一个线程去接收这个任务，一个进就有一个出，队列不会存储任何元素)
+
+    （newFixedThreadPool和newSingleThreadExecutor默认使用LinkedBlockingQueue队列）
+
+饱和策略:若等待队列时有界的并且已经满了的时候所采用的方法
+    通过RejectedExecutionHandler来实现
+
+线程池状态
+    runState:线程池状态(通过runStateOf()方法获取)
+    workerCount:工作线程的数量(通过workerCountOf()方法获取)
+  线程池由Worker类来负责执行任务
+  AbstractQueuedSynchronizer:根据状态位来控制线程的入队阻塞，出队唤醒来处理同步
+
+
