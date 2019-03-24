@@ -3,6 +3,9 @@ package com.cashbang.fanstasy.proxy;
 import com.cashbang.fanstasy.BaseTest;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+
 /**
  * @Author: huangdejie
  * @Date: 2018/11/8
@@ -16,6 +19,13 @@ public class ProxyTest extends BaseTest {
         UserService proxy = (UserService) new ProxyFactory(userService).getProxyInstance();
         System.out.println(proxy.getClass());
         proxy.eatFood();
+    }
+
+    @Test
+    public void testSocket() throws IOException{
+        ServerSocket serverSocket = new ServerSocket(8080);
+        serverSocket.accept();
+
     }
 
 }

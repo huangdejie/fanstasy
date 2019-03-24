@@ -73,6 +73,17 @@ deleteDeployment(String deploymentId,boolean cascade)
    ！！！结束事件都是抛出事件
 
 
+java服务任务
+    activiti:class 必须实现JavaDelegate或者ActivitiBehaviour
+    activiti:delegateExpression
+    activiti:expression
+
+子流程
+    嵌入式子流程
+    调用式子流程
+    事件子流程
+    事务子流程
+    特别子流程
 
 
 
