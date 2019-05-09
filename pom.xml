@@ -23,6 +23,7 @@
 	</parent>
 
 	<properties>
+		<maven.test.skip>true</maven.test.skip>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -63,12 +64,28 @@
 		</profile>
 	</profiles>
 
+
+	<repositories><!-- 代码库 -->
+		<repository>
+			<id>maven-ali</id>
+			<url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<!--<version>1.3.7.RELEASE</version>-->
+				<version>1.3.7.RELEASE</version>
 				<configuration>
 					<!-- 指定程序入口类 -->
 					<mainClass>com.cashbang.fanstasy.FanstasyApplication</mainClass>
