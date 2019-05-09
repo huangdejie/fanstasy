@@ -12,3 +12,21 @@ CountDownLatch:能够使一个线程等待其它线程执行完毕之后再执�
     占有且等待,线程A在已经取得资源X的情况下,等待资源Y的时候不释放X
     不可抢占,其它线程不可抢占线程A的资源
     循环等待,线程A等待线程B占有的资源,线程B等待线程A占有的资源
+
+AQS(AbstractQueuedSynchronizer):
+    NODE.SIGNAL=-1,当前节点在入队后、进入休眠状态前,应确保将其prev节点类型改为SIGNAL,以便取消或者释放时将当前节点唤醒。
+        也就是说当前节点的waitStatus为SIGNAL时,被释放时才会唤醒后继节点
+    NODE.CANCELLED=1,同步队列中等待的线程等待超时或者被中断,其节点的waitStatus为CANCELLED,即结束状态。进入该状态的节点将不再发生改变
+    NODE.CONDITION=-2,与Condition相关,标记的节点处于等待队列中,节点的线程等待在Condition上,当其它线程调用了Condition的signal()方法后,
+        CONDITION状态的节点将从等待队列转移到同步队列中,等待获取同步锁
+    NODE.PROPAGATE=-3,与共享模式相关,在共享模式中,该状态标识节点的线程处于可运行状态
+
+    shouldParkAfterFailedAcquire(Node pred, Node node):当前节点进入同步队列等待时进行判断,若其前继节点状态为SIGNAL时，则可计入等待队列;
+        若前继节点状态>0,则继续往前找直到节点的状态不大于0,此时尝试将找到的节点状态标识为SIGNAL.
+    parkAndCheckInterrupt():park()会让当前线程进入waiting状态。在此状态下，有两种途径可以唤醒该线程：1）被unpark()；2）被interrupt()
+    acquireQueued():
+        1)节点进入队尾后,检查状态，找到安全休息点
+        2)调用park()进入waiting状态,等待unpark()或者interrupt()唤醒自己
+        3)被唤醒后,查看自己是否有资格能拿到号,如果拿到，head指向当前结点，并返回从入队到拿到号的整个过程中是否被中断过；如果没拿到，继续流程1。
+
+
