@@ -14,6 +14,8 @@ CountDownLatch:能够使一个线程等待其它线程执行完毕之后再执�
     循环等待,线程A等待线程B占有的资源,线程B等待线程A占有的资源
 
 AQS(AbstractQueuedSynchronizer):
+    资源共享方式:Exclusive(独占,只有一个线程能执行，如ReentrantLock)和share(共享，多个线程可同时执行，如Semaphore/CountDownLatch)
+
     NODE.SIGNAL=-1,当前节点在入队后、进入休眠状态前,应确保将其prev节点类型改为SIGNAL,以便取消或者释放时将当前节点唤醒。
         也就是说当前节点的waitStatus为SIGNAL时,被释放时才会唤醒后继节点
     NODE.CANCELLED=1,同步队列中等待的线程等待超时或者被中断,其节点的waitStatus为CANCELLED,即结束状态。进入该状态的节点将不再发生改变
@@ -28,5 +30,10 @@ AQS(AbstractQueuedSynchronizer):
         1)节点进入队尾后,检查状态，找到安全休息点
         2)调用park()进入waiting状态,等待unpark()或者interrupt()唤醒自己
         3)被唤醒后,查看自己是否有资格能拿到号,如果拿到，head指向当前结点，并返回从入队到拿到号的整个过程中是否被中断过；如果没拿到，继续流程1。
+
+    acquire(int arg)：
+        tryAcquire(arg)：尝试获取独占资源，若获取到则直接返回
+        acquireQueued(addWaiter(Node.EXCLUSIVE), arg)：若获取独占资源失败进入这个方法
+            addWaiter(Node.EXCLUSIVE):将该线程放入等待队列队尾
 
 
