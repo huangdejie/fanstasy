@@ -1,1 +1,28 @@
 CountDownLatch:能够使一个线程等待其它线程执行完毕之后再执行(如应用程序希望在负责启动框架服务的线程已经启动所有的框架服务之后再执行)
+Happens—Before规则：前面一个操作的结果对后续操作是可见的
+    程序的顺序性规则：前面的操作Happens—Before于后续的任意操作
+    volatile变量规则：对一个volatile变量的写操作，Happens—Before于后续对这个volatile变量的读操作
+    传递性：若A Happens-Before B，且B Happens—Before C，那么A Happens-Before C
+    管程中锁的规则：指一个锁的解锁Happens-Before于后续对这个锁的加锁
+    线程start()规则：指主线程A启动子线程B后，子线程B能够看到主线程在启动子线程B前的操作
+    线程join()规则：主线程A等待子线程B完成，当子线程B完成后，主线程能够看到子线程的操作
+
+  final：修饰变量时，告诉编译器：这个变量生而不变，可以可劲儿变化
+
+synchronized：修饰静态方法时，锁的是当前类的class对象
+              修饰非静态方法时，锁的是当前实例对象this
+
+
+ThreadPoolExecutor：
+    keepAliveTime：表示线程没有任务执行时存活多久。默认情况下只有当线程池中的线程数大于coolPoolSize时才会起作用
+    **workQueue**：阻塞队列，用来存储等待执行的任务
+        ArrayBlockingQueu：基于数组结构的有界阻塞队列
+        LinkedBlockingQueue：基于链表结构的阻塞队列，其吞吐量要高于数组结构的队列
+        SynchronousQueue：一个不存储元素的阻塞队列，每个插入操作必须等待另一个线程调用移除操作，否则插入操作一直处于阻塞状态
+            其吞吐量通常高于链表结构的阻塞队列
+        PriorityBlockingQueue：具有优先级的无限阻塞队列
+     **handler**：饱和策略，即当线程池满了，说明线程池处于饱和状态，此时必须采取一种策略来处理新提交的任务
+        ThreadPoolExecutor.AbortPolicy：丢弃任务并抛出RejectedExecutionException异常
+        ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常
+        ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
+        ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务;
