@@ -2,6 +2,8 @@ package com.cashbang.fanstasy.request;
 
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.Date;
+
 /**
  * Created by huangdejie on 2018/8/20 0020.
  */
@@ -13,6 +15,8 @@ public class UserRequest {
     private String loginName;
     @ApiModelProperty("密码")
     private String password;
+    @ApiModelProperty("创建时间")
+    private Date createDate;
 
     public String getUserName() {
         return userName;
@@ -36,5 +40,13 @@ public class UserRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
