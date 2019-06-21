@@ -3,6 +3,8 @@ package com.cashbang;
 import com.cashbang.fanstasy.FanstasyApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -14,9 +16,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = {FanstasyApplication.class})
 public class BaseTest {
 
+    private Logger logger = LoggerFactory.getLogger(BaseTest.class);
+
     @Test
     public void testAAAA(){
-        System.out.println("你好");
+        logger.info("nigha");
     }
 
 

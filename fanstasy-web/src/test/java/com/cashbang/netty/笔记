@@ -1,0 +1,9 @@
+Java NIO 三件套
+Buffer Channel Selector
+
+Buffer(底层为数组)
+    capacity:数组容量(缓冲区中的最大数据容量)
+    position:当前操作数组的位置(被写入或者读取的元素索引，值由get()/put()自动更新，初始为0)
+    limit:当前操作数组的范围(指定还有多少数据需要去除(在从缓冲区写入通道时),或者还有多少空间可以放入数据)
+    关系:0<=position<=limit<=capacity
+Selector 调度器，总控中心，一个主线程去分配各种work线程

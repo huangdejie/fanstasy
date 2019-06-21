@@ -1,12 +1,12 @@
 package com.cashbang.fanstasy.controller;
 
 import com.cashbang.fanstasy.entity.UserEntity;
+import com.cashbang.fanstasy.request.StudentRequest;
 import com.cashbang.fanstasy.request.UserRequest;
 import com.cashbang.fanstasy.response.Response;
 import com.cashbang.fanstasy.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,7 +30,15 @@ public class UserController {
     @ApiOperation(value = "用户登录",notes = "根据传入的登录名及密码")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Response login(HttpServletRequest httpServletRequest, @RequestBody UserRequest userRequest){
-        userService.login(userRequest.getLoginName(),userRequest.getPassword());
+//        userService.login(userRequest.getLoginName(),userRequest.getPassword());
+        String a = "hello";
+        Response response = new Response();
+        return response;
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public Response login(HttpServletRequest request, @RequestBody StudentRequest studentRequest){
+        String s = "login";
         Response response = new Response();
         return response;
     }
