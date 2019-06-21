@@ -1,4 +1,5 @@
 CountDownLatch:能够使一个线程等待其它线程执行完毕之后再执行(如应用程序希望在负责启动框架服务的线程已经启动所有的框架服务之后再执行)
+<<<<<<< HEAD
 Happens—Before规则：前面一个操作的结果对后续操作是可见的
     程序的顺序性规则：前面的操作Happens—Before于后续的任意操作
     volatile变量规则：对一个volatile变量的写操作，Happens—Before于后续对这个volatile变量的读操作
@@ -26,3 +27,41 @@ ThreadPoolExecutor：
         ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常
         ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
         ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务;
+
+读写锁的基本原则:
+    1、允许多个线程同时读共享变量
+    2、只允许一个线程写共享变量
+    3、若写线程正在执行写操作，此时禁止读线程读共享变量
+
+ StampedLock:
+    写锁、悲观读锁、乐观读(无锁)
+死锁的必要条件:
+    互斥,共享资源X和Y只能被一个线程所占有
+    占有且等待,线程A在已经取得资源X的情况下,等待资源Y的时候不释放X
+    不可抢占,其它线程不可抢占线程A的资源
+    循环等待,线程A等待线程B占有的资源,线程B等待线程A占有的资源
+
+AQS(AbstractQueuedSynchronizer):
+    资源共享方式:Exclusive(独占,只有一个线程能执行，如ReentrantLock)和share(共享，多个线程可同时执行，如Semaphore/CountDownLatch)
+
+    NODE.SIGNAL=-1,当前节点在入队后、进入休眠状态前,应确保将其prev节点类型改为SIGNAL,以便取消或者释放时将当前节点唤醒。
+        也就是说当前节点的waitStatus为SIGNAL时,被释放时才会唤醒后继节点
+    NODE.CANCELLED=1,同步队列中等待的线程等待超时或者被中断,其节点的waitStatus为CANCELLED,即结束状态。进入该状态的节点将不再发生改变
+    NODE.CONDITION=-2,与Condition相关,标记的节点处于等待队列中,节点的线程等待在Condition上,当其它线程调用了Condition的signal()方法后,
+        CONDITION状态的节点将从等待队列转移到同步队列中,等待获取同步锁
+    NODE.PROPAGATE=-3,与共享模式相关,在共享模式中,该状态标识节点的线程处于可运行状态
+
+    shouldParkAfterFailedAcquire(Node pred, Node node):当前节点进入同步队列等待时进行判断,若其前继节点状态为SIGNAL时，则可计入等待队列;
+        若前继节点状态>0,则继续往前找直到节点的状态不大于0,此时尝试将找到的节点状态标识为SIGNAL.
+    parkAndCheckInterrupt():park()会让当前线程进入waiting状态。在此状态下，有两种途径可以唤醒该线程：1）被unpark()；2）被interrupt()
+    acquireQueued():
+        1)节点进入队尾后,检查状态，找到安全休息点
+        2)调用park()进入waiting状态,等待unpark()或者interrupt()唤醒自己
+        3)被唤醒后,查看自己是否有资格能拿到号,如果拿到，head指向当前结点，并返回从入队到拿到号的整个过程中是否被中断过；如果没拿到，继续流程1。
+
+    acquire(int arg)：
+        tryAcquire(arg)：尝试获取独占资源，若获取到则直接返回
+        acquireQueued(addWaiter(Node.EXCLUSIVE), arg)：若获取独占资源失败进入这个方法
+            addWaiter(Node.EXCLUSIVE):将该线程放入等待队列队尾
+
+
