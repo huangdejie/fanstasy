@@ -5,7 +5,6 @@ import com.cashbang.netty.tomcat.bio.http.DJResponse;
 import com.cashbang.netty.tomcat.bio.http.DJServlet;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
@@ -43,7 +42,7 @@ public class DJTomcat {
     private Properties webProperties = new Properties();
 
     private void init(){
-        //加载web.properties文件,同时初始化servletMapping对象
+        //加载web.properties文件,同时初始化servletMapping对象(请求方法和对应的servlet组成一个map)
         try {
             String WEB_INF = this.getClass().getResource("/").getPath();
             FileInputStream fis = new FileInputStream(WEB_INF+"web.properties");
@@ -80,6 +79,7 @@ public class DJTomcat {
     private void process(Socket socket) throws Exception{
         InputStream is = socket.getInputStream();
         OutputStream os = socket.getOutputStream();
+        //实例化request对象时解析输入流，url为请求方法(/firstServlet.do),method为请求方式(GET/POST)
         DJRequest request = new DJRequest(is);
         DJResponse response =new DJResponse(os);
         String url = request.getUrl();
