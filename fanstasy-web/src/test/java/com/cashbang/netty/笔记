@@ -6,4 +6,6 @@ Buffer(底层为数组)
     position:当前操作数组的位置(被写入或者读取的元素索引，值由get()/put()自动更新，初始为0)
     limit:当前操作数组的范围(指定还有多少数据需要去除(在从缓冲区写入通道时),或者还有多少空间可以放入数据)
     关系:0<=position<=limit<=capacity
-Selector 调度器，总控中心，一个主线程去分配各种work线程
+Selector 调度器，总控中心，多路复用器，一个主线程去分配各种work线程
+    当我们向一个Selector中注册了Channel后，Selector内部的机制就可以自动地为我们不断的查询这些注册的Channel是否
+    有已就绪的IO事件(例如可读、科协、网络链接完成等)。
