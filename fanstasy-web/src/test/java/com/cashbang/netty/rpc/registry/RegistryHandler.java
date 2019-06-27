@@ -43,8 +43,8 @@ public class RegistryHandler extends ChannelInboundHandlerAdapter {
             try {
                 Class clazz = Class.forName(className);
                 Class<?> interClass = clazz.getInterfaces()[0];
-                serviceMap.put(interClass.getName(),clazz);
-            } catch (ClassNotFoundException e) {
+                serviceMap.put(interClass.getName(),clazz.newInstance());
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -66,6 +66,7 @@ public class RegistryHandler extends ChannelInboundHandlerAdapter {
     //有客户端连上时，会回调
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("接收到客户端的请求...");
         Object result = null;
         InvokerProtocol request = (InvokerProtocol) msg;
         if(serviceMap.containsKey(request.getClassName())){

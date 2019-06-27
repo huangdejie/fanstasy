@@ -25,12 +25,12 @@ public class HttpTest extends BaseTest {
     public void testHttlClient(){
         HttpClient httpClient = new DefaultHttpClient();
 //        Htt
-        String url = "http://localhost:9090/docker/user/login";
+        String url = "http://222.190.253.106:8089/docker/blackFish/importCaseInfos";
         HttpPost httpPost = new HttpPost(url);
         httpPost.setHeader("Content-type","application/json; charset=utf-8");
         httpPost.setHeader("Accept", "application/json");
         Map<String,Object> map = new HashMap<>();
-        map.put("memberId","zhangsan");
+        map.put("channel","zhangsan");
         Gson gson = new Gson();
         String json = gson.toJson(map);
         httpPost.setEntity(new StringEntity(json, Charset.forName("UTF-8")));

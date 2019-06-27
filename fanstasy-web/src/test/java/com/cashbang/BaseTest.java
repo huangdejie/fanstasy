@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = {FanstasyApplication.class})
 public class BaseTest {
 
-    private Logger logger = LoggerFactory.getLogger(BaseTest.class);
+    public Logger logger = LoggerFactory.getLogger(BaseTest.class);
 
     @Test
     public void testAAAA(){
