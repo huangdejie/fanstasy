@@ -10,6 +10,7 @@
 		<module>fanstasy-common</module>
 		<module>fanstasy-core</module>
 		<module>fanstasy-web</module>
+		<module>fanstasy-practice</module>
 	</modules>
 	<packaging>pom</packaging>
 
