@@ -44,7 +44,7 @@ public class UserController {
             return response;
         }
         userService.login(loginName,password);
-        Response response = new Response();
+        response = new Response();
         return response;
     }
 
