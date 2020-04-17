@@ -5,13 +5,13 @@ package com.cashbang.fanstasy.response;
  */
 public class Response<T> extends Message {
 
-    private T detail;
+    private T data;
 
-    public T getDetail() {
-        return detail;
+    public T getData() {
+        return data;
     }
 
-    public void setDetail(T detail) {
-        this.detail = detail;
+    public void setData(T data) {
+        this.data = data;
     }
 }

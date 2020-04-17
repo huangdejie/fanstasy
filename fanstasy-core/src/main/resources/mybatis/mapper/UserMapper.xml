@@ -3,7 +3,7 @@
 <mapper namespace="com.cashbang.fanstasy.mapper.UserMapper">
 
     <select id="login" resultType="com.cashbang.fanstasy.entity.UserEntity">
-        SELECT WORK_ID AS loginName FROM USER WHERE WORK_ID = #{loginName} AND LOGIN_PASS = #{password}
+        SELECT WORK_ID AS loginName FROM user WHERE WORK_ID = #{loginName} AND LOGIN_PASS = #{password}
     </select>
 
 </mapper>

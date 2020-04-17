@@ -9,7 +9,7 @@ public class Message implements Serializable{
 
     private static final long serialVersionUID = -6612115585369506873L;
     private String desc;
-    private int code = 0;
+    private int code;
 
     public String getDesc() {
         return desc;

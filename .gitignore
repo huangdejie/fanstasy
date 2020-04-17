@@ -9,7 +9,7 @@
 web/src/main/java/cn/memedai/web/MyTestController.java
 **/athena
 **/hermes
-
+*.log
 
 # eclipse specific git ignore
 *.pydevproject
